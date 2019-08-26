@@ -47,7 +47,7 @@ checkNNGradients(lambda);
 
 %NN training
 fprintf('\nTraining Neural Network... \n')
-iter=4000;
+iter=5000;
 
 options = optimset('MaxIter', iter);
 lambda = 1;
@@ -80,8 +80,8 @@ lambda_history=zeros(1000,1);
 for i=1:1000
     lambda_history(i)= nnCost(nn_params,input_layer_size,hidden_layer_size, lables,X_train, Y_train, i/10);
 end
-[minval,row]=min(min(lambda_history))
-lambda=row
+[minval,row]=min(min(lambda_history));
+lambda=row;
 plot(lambda_history,1:1000,'x')
 X_test=X_main(136:end,:);
 Y_test=Y_main(136:end,:);
